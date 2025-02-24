@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Player1</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css" id="stylesheet">
+        <link rel="icon" href="images/icon.png" type="image/png" size="34, 34">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="This website is for Player1's video game channel. It took me 1 day to make, plus 5 days of adding randome things. Enjoy!">
+        <meta name="keywords" content="Player1, Player1's video game channel, Player1's website, Player1's video game channel website">
+        <meta name="author" content="Player1/Coder1">
+        <meta name="language" content="English">
+        <meta name="theme-color" content="#E81717">
+
+    </head>
+    <body>
+        <!--Header-->
+        <header>
+            <!--Background video-->
+            <video disablePictureInPicture id="background_video" autoplay muted loop src="videos/background.mp4"></video>
+            <!--Introduction-->
+            <div id="intro_box">
+                <h1><img src="images/logo.png" width="25%" style="border-radius: 100%" draggable="false"></h1>
+                <h1>Hello!</h1>
+                <p>Welcome to my website! I am <a href="https://www.youtube.com/@player12024">Player1</a>. I am a YouTuber, gamer, and programmer. Player1 is my video game channel. <a href="https://www.youtube.com/@coder12024">Coder1</a> is my programming channel. This site is for the Player1 channel. Sorry about some of the animations being glitchy. I'm not an expert programmer. I made sure that the background video pauses when you scroll past it, so don't worry about that. I also made it so that if the browser is in dark mode, the website is also dark. This is probably the best website I have ever made. Yes, it was hard, but it was fun!</p>
+                <p>This website works best on a computer.</p>
+            </div>
+        </header>
+        <!--Bar at the top of the page-->
+        <div id="menu"><a href="https://www.youtube.com/@player12024"><img id="logo" height="36" src="images/Player1.png" draggable="false"></a><button id="subCount" title="subscriber count" onclick="alert('Sorry, but that is not a button. Yeah, I probably should make it less like one.')">Loading...</button></div>
+        
+        <div id="flex">
+            <center>
+            
+                <!--Latest video-->
+                <div class="section">
+                    <h1>Latest</h1>
+                    <div class="videoWrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed?listType=playlist&list=UULFx1rz03Of34JyzzNNnCdqGw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Here is where my newest video will be displayed.</p>
+                </div>
+
+                <!--Second latest video-->
+                <div class="section">
+                    <h1>2nd Latest</h1>
+                    <div class="videoWrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed?listType=playlist&list=UULFx1rz03Of34JyzzNNnCdqGw&index=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Video before the latest video.</p>
+                </div>
+
+                <!--Third latest video-->
+                <div class="section">
+                    <h1>3rd Latest</h1>
+                    <div class="videoWrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed?listType=playlist&list=UULFx1rz03Of34JyzzNNnCdqGw&index=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p>Video before the video before the latest video.</p>
+                </div>
+
+                <!--Mario Kart 8 guide-->
+                <div class="section">
+                    <h1>The Ultimate Pro Guide to Mario Kart</h1>
+                    <a href="https://www.youtube.com/watch?v=aDwumVhfCec" title="A link."><img src="https://i.ytimg.com/vi/aDwumVhfCec/hq720.jpg"></a>
+                    <p>A link to <a href="https://www.youtube.com/@Shortcat321" title="Not me.">Shortcat</a>'s video: <a href="https://www.youtube.com/watch?v=aDwumVhfCec" title="Not my video.">The Ultimate Pro Guide to Mario Kart</a> ↑</p>
+                </div>
+                
+                <!--
+                <div class="section">
+                    <h1>Test</h1>
+                    <img src="">
+                    <p>Test</p>
+                </div>
+                -->
+            </center>
+        </div>
+
+        <!--Footer-->
+        <footer>The page was built by Player1 (@player12024)</footer>
+    </body>
+    <script>
+        var back_vid = document.getElementById("background_video");
+        var footer = document.querySelector("footer");
+
+        //Pause video when out of view
+        document.addEventListener("scroll", function (event) {
+            /*
+            console.log(document.body.scrollHeight);
+            console.log(window.innerHeight);
+            console.log(window.pageYOffset);
+            */
+            if(window.pageYOffset > window.innerHeight){
+                back_vid.pause();
+            }else{
+                back_vid.play(); 
+            }
+        });
+
+        //Add last updated date to footer
+        footer.innerHTML += " - Last updated " + document.lastModified;
+
+        //Detect is mobile device
+        let details = navigator.userAgent; 
+        let regexp = /android|iphone|kindle|ipad/i; 
+        let isMobileDevice = regexp.test(details); 
+  
+        if (isMobileDevice) { 
+            document.getElementById('stylesheet').href='stylesheets/style_mobile.css';
+            if(window.innerWidth > 1180){
+                alert("This page might not look good on a mobile device with this screen size. I recommend you use a computer.");
+            }
+        } else if(window.innerWidth < 770){
+            alert("This website is not optimized for this screen size. Please use a device with a larger screen.");
+        }
+    </script>
+    <script>
+        //get youtube subscriber count
+        const youtubeKey = 'AIzaSyCZ5yIC9js_qfRcf5Paw-mQiiMdfV1Vp0U';
+        const youtubeUser = 'UCx1rz03Of34JyzzNNnCdqGw';
+        const subCount = document.getElementById("subCount");
+
+        let getSubscribers = () => {
+
+            fetch('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='+youtubeUser+'&key='+youtubeKey+'')
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                subCount.innerHTML = data["items"][0].statistics.subscriberCount + " Subscribers";
+                document.title += " - " + data["items"][0].statistics.subscriberCount + " subscribers";
+            })
+        }
+
+        getSubscribers();
+    </script>
+</html>
